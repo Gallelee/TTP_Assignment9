@@ -10,7 +10,9 @@ function App() {
   const [balance, setBalance] = useState(1000)
   const [userName, setUserName] = useState("Jonny_Bravo")
   const [memberSince, setMemberSince] = useState("03/26/1995")
-  
+  const [debits, setDebits] = useState(null)
+  const [credits, setCredits] = useState(null)
+
   
   return(
     <Router>
