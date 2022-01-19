@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import Home from "./Home"
-import UserProfile from './UserProfile';
+import Home from "./components/Home"
+import UserProfile from './components/UserProfile';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 function App() {
