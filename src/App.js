@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Home from "./components/Home"
 import UserProfile from './components/UserProfile';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
@@ -13,7 +13,17 @@ function App() {
   const [debits, setDebits] = useState(null)
   const [credits, setCredits] = useState(null)
 
-  
+  const debitsLookup = "https://moj-api.herokuapp.com/debits"
+  const creditsLookup = "https://moj-api.herokuapp.com/credits"
+
+  useEffect(()=> {
+    fetch("https://moj-api.herokuapp.com/debits")
+    .then(res => res.json())
+    .then(obj => setDebits(obj))
+  },[debitsLookup])
+
+  console.log(debits)
+
   return(
     <Router>
       <Routes>
