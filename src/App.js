@@ -8,7 +8,9 @@ function App() {
 
   return(
     <Router>
-      <h1>hi</h1>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
     </Router>
   )
  
