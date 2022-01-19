@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Home from "./components/Home"
+import UserProfile from './components/UserProfile';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [balance, setBalance] = useState(1000)
+  const [userName, setUserName] = useState("Jonny_Bravo")
+  const [memberSince, setMemberSince] = useState("03/26/1995")
+  
+  
+  return(
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home balance={balance}/>}/>
+        <Route path="/UserProfile" element = {<UserProfile username={userName} memberSince={memberSince}/>}/>
+      </Routes>
+    </Router>
+  )
+ 
 }
 
 export default App;
