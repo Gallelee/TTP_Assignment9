@@ -38,6 +38,7 @@ function App() {
         <Route path="/" element={<Home balance={balance}/>}/>
         <Route path="/UserProfile" element = {<UserProfile username={userName} memberSince={memberSince}/>}/>
         <Route path="/Debits" element = {<Debits debitInfo={debits}/>}/>
+        <Route path="/Credits" element = {<Credits creditInfo={credits}/>}/>
       </Routes>
     </Router>
   )
@@ -45,3 +46,4 @@ function App() {
 }
 
 export default App;
+
