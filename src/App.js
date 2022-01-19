@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home balance={balance}/>}/>
-        <Route path="/UserProfile" element = {<UserProfile />}/>
+        <Route path="/UserProfile" element = {<UserProfile username={userName} memberSince={memberSince}/>}/>
       </Routes>
     </Router>
   )
