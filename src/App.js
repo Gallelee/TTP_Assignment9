@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Home from "./components/Home"
 import UserProfile from './components/UserProfile';
 import Debits from './components/Debits';
+import Credits from './components/Credits';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+
 
 function App() {
 
