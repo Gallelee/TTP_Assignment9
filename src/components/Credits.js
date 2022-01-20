@@ -6,6 +6,7 @@ export default function Credits(props){
     if(creditContents){
         return(
             <div>
+                <h1>Credits</h1>
                 {creditContents[0].id}
             </div>
         )

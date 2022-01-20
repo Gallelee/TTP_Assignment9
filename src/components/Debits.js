@@ -8,6 +8,7 @@ export default function Debits(props){
     if(debitContents){
         return(
             <div>
+                <h1>Debits</h1>
                 {debitContents[0].id}
             </div>
     )
