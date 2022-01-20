@@ -66,8 +66,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home balance={balance}/>}/>
         <Route path="/UserProfile" element = {<UserProfile username={userName} memberSince={memberSince}/>}/>
-        <Route path="/Debits" element = {<Debits debitInfo={debits}/>}/>
-        <Route path="/Credits" element = {<Credits creditInfo={credits}/>}/>
+        <Route path="/Debits" element = {<Debits debitInfo={debits} balance={balance}/>}/>
+        <Route path="/Credits" element = {<Credits creditInfo={credits} balance={balance}/>}/>
       </Routes>
     </Router>
   )

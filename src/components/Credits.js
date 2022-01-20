@@ -7,9 +7,9 @@ export default function Credits(props){
         return(
             <div>
                 <h1>Credits</h1>
+                <h3>Account Balance: {props.balance}</h3>
                 {creditContents.map( elm => {
                     return(<div className="credit-card">
-                                <h4>{elm.id}</h4>
                                 <h4>{elm.description}</h4>
                                 <h4>{elm.amount}</h4>
                                 <h4>{elm.date}</h4>
