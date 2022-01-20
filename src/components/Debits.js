@@ -5,6 +5,7 @@ export default function Debits(props){
     let debitContents = props.debitInfo
 
     const addDebit = (ev) => {
+        ev.preventDefault()
        alert(ev.target[0].value)
     }
 
