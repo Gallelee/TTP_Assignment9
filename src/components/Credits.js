@@ -6,7 +6,15 @@ export default function Credits(props){
     if(creditContents){
         return(
             <div>
-                {creditContents[0].id}
+                <h1>Credits</h1>
+                {creditContents.map( elm => {
+                    return(<div className="credit-card">
+                                <h4>{elm.id}</h4>
+                                <h4>{elm.description}</h4>
+                                <h4>{elm.amount}</h4>
+                                <h4>{elm.date}</h4>
+                        </div>)
+                })}
             </div>
         )
     }

@@ -15,6 +15,8 @@ function App() {
   const [memberSince, setMemberSince] = useState("03/26/1995")
   const [debits, setDebits] = useState(null)
   const [credits, setCredits] = useState(null)
+  const [totalDebit, setTotalDebit] = useState(0)
+  const [totalCredit, setTotalCredit] = useState(0)
 
   const debitsLookup = "https://moj-api.herokuapp.com/debits"
   const creditsLookup = "https://moj-api.herokuapp.com/credits"
@@ -31,8 +33,33 @@ function App() {
     .then(obj => setCredits(obj))
   },[creditsLookup])
 
-  console.log(debits)
-  console.log(credits)
+  
+  const calcBalance = () => {
+    let debtotal = 0
+
+    if(debits){
+      for(let i of debits){
+        debtotal = debtotal + i.amount
+      }
+    }
+    setTotalDebit(debtotal)
+
+    let credTotal = 0
+    if(credits){
+      for(let i of credits){
+        credTotal = credTotal + i.amount
+      }
+    }
+    setTotalCredit(credTotal)
+    
+  }
+
+
+  useEffect(() => {
+    calcBalance()
+    setBalance((totalCredit - totalDebit).toFixed(2))
+  })
+  
   
   return(
     <Router>
