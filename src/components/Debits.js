@@ -9,7 +9,14 @@ export default function Debits(props){
         return(
             <div>
                 <h1>Debits</h1>
-                {debitContents[0].id}
+                {debitContents.map( elm => {
+                    return(<div className="debit-card">
+                                <h4>{elm.id}</h4>
+                                <h4>{elm.description}</h4>
+                                <h4>{elm.amount}</h4>
+                                <h4>{elm.date}</h4>
+                        </div>)
+                })}
             </div>
     )
     }
