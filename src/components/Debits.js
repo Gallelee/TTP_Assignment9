@@ -3,14 +3,16 @@ import React, { useState } from "react"
 export default function Debits(props){
 
     let debitContents = props.debitInfo
-    let i = 0 //used to increment state to force update
-    const [userDebit, setUserDebit] = useState(i)//using the state to force an update
-   
+    const [newBalance,setNewBalance] = useState(props.balance)
+    
 
-    const addDebit = (ev) => {
+    const addDebit = async (ev) => {
+
         ev.preventDefault()
-       debitContents.push({description: ev.target[0].value, amount: ev.target[1].value})
-       setUserDebit(i++) // forces an update to display the new debit
+        debitContents.push({description: ev.target[0].value, amount: ev.target[1].value})
+        setNewBalance(newBalance? newBalance-parseInt(ev.target[1].value) : props.balance-parseInt(ev.target[1].value))
+       console.log(newBalance)
+
     }
     
 
@@ -19,11 +21,11 @@ export default function Debits(props){
             <div>
                 <h1>Debits</h1>
                 <h2>Add new Debits?</h2>
-                <h3>Account Balance: {props.balance}</h3> 
+                <h3>Account Balance: {newBalance? newBalance:props.balance}</h3> 
                 <form onSubmit={(ev) => addDebit(ev)}>
                     <input type={"text"} placeholder="Enter a description for your new Debit"/>
                     <input type={"text"} placeholder="Enter the amount for the new debit"/>
-                    <input type={"submit"}/>
+                    <input type={"submit"} value={"Save Changes"}/>
                 </form>
                 {debitContents.map( elm => {
                     return(<div className="debit-card">

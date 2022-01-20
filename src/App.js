@@ -10,7 +10,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 function App() {
 
-  const [balance, setBalance] = useState(1000)
+  const [balance, setBalance] = useState(null)
   const [userName, setUserName] = useState("Jonny_Bravo")
   const [memberSince, setMemberSince] = useState("03/26/1995")
   const [debits, setDebits] = useState(null)
