@@ -4,11 +4,13 @@ export default function Debits(props){
 
     let debitContents = props.debitInfo
 
+    const [userDebit, setUserDebit] = useState(0)//using the state to force an update
    
 
     const addDebit = (ev) => {
         ev.preventDefault()
        debitContents.push({description: ev.target[0].value, amount: ev.target[1].value})
+       setUserDebit(1) // forces an update to display the new debit
     }
     
 
