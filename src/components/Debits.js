@@ -11,7 +11,7 @@ export default function Debits(props){
     const addDebit = async (ev) => {
 
         ev.preventDefault()
-        debitContents.unshift({description: ev.target[0].value, amount: ev.target[1].value})
+        debitContents.unshift({description: ev.target[0].value, amount: ev.target[1].value, date: new Date().toISOString()})
         setNewBalance(newBalance? (parseFloat(newBalance)-parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)-parseFloat(ev.target[1].value)).toFixed(2))
        console.log(newBalance)
 
