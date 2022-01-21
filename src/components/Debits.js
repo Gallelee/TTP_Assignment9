@@ -8,12 +8,19 @@ export default function Debits(props){
     const [newBalance,setNewBalance] = useState(props.balance)
     
 
-    const addDebit = async (ev) => {
+    const addDebit = (ev) => {
 
         ev.preventDefault()
-        debitContents.unshift({description: ev.target[0].value, amount: ev.target[1].value, date: new Date().toISOString()})
-        setNewBalance(newBalance? (parseFloat(newBalance)-parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)-parseFloat(ev.target[1].value)).toFixed(2))
-       console.log(newBalance)
+        if(ev.target[0].value !== "" && ev.target[1].value !== ""){
+            debitContents.unshift({description: ev.target[0].value, amount: ev.target[1].value, date: new Date().toISOString()})
+            setNewBalance(newBalance? (parseFloat(newBalance)-parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)-parseFloat(ev.target[1].value)).toFixed(2))
+            console.log(ev.target[1].value)
+        }
+        else{
+            alert("Check your Entries")
+        }
+
+        
 
     }
     
@@ -36,7 +43,7 @@ export default function Debits(props){
 
                 <form onSubmit={(ev) => addDebit(ev)}>
                     <input type={"text"} placeholder="Enter a description for your new Debit"/>
-                    <input type={"text"} placeholder="Enter the amount for the new debit"/>
+                    <input type={"number"} step={"0.01"} min={"0"} placeholder="Enter the amount for the new debit"/>
                     <input type={"submit"} value={"Add Debit"}/>
                 </form>
                 {debitContents.map( elm => {

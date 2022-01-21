@@ -11,10 +11,14 @@ export default function Credits(props){
 
     const addCredit = (ev) => {
         ev.preventDefault()
-       
+        if(ev.target[0].value !== "" && ev.target[1].value !== ""){
        creditContents.unshift({description: ev.target[0].value, amount: ev.target[1].value, date: new Date().toISOString()})
        setNewCredBalance(newCredBalance? (parseFloat(newCredBalance)+parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)+parseFloat(ev.target[1].value)).toFixed(2))
        console.log(typeof props.balance)
+        }
+        else{
+            alert("Check Your Entries")
+        }
     }
 
     if(creditContents){
@@ -35,7 +39,7 @@ export default function Credits(props){
 
                 <form onSubmit={(ev) => addCredit(ev)}>
                     <input type={"text"} placeholder="Enter a description for your new Debit"/>
-                    <input type={"text"} placeholder="Enter the amount for the new debit"/>
+                    <input type={"number"} step={".01"} min={"0"} placeholder="Enter the amount for the new debit"/>
                     <input type={"submit"} value={"Add Credit"}/>
                 </form>
 
