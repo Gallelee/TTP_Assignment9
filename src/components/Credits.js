@@ -38,8 +38,10 @@ export default function Credits(props){
                 <h3>Add New Credits?</h3>
 
                 <form onSubmit={(ev) => addCredit(ev)}>
-                    <input type={"text"} placeholder="Enter a description for your new Debit"/>
-                    <input type={"number"} step={".01"} min={"0"} placeholder="Enter the amount for the new debit"/>
+                    <label>Description</label>
+                    <input type={"text"}/>
+                    <label>Amount</label>
+                    <input type={"number"} step={"0.01"} min={"0"}/>
                     <input type={"submit"} value={"Add Credit"}/>
                 </form>
 
