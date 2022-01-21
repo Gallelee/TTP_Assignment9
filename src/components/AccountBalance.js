@@ -4,7 +4,7 @@ export default function AccountBalance(props){
 
     return(
         <div>
-            Balance: {props.balance}
+            <h4>Account Balance: {props.balance}</h4>
         </div>
     )
 }
