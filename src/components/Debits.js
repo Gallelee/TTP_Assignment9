@@ -10,7 +10,7 @@ export default function Debits(props){
 
         ev.preventDefault()
         debitContents.push({description: ev.target[0].value, amount: ev.target[1].value})
-        setNewBalance(newBalance? newBalance-parseInt(ev.target[1].value) : props.balance-parseInt(ev.target[1].value))
+        setNewBalance(newBalance? (parseFloat(newBalance)-parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)-parseFloat(ev.target[1].value)).toFixed(2))
        console.log(newBalance)
 
     }

@@ -2,25 +2,23 @@ import React, {useState} from "react"
 
 export default function Credits(props){
     let creditContents = props.creditInfo
-    let balance = props.balance
-
-    let i = 0 //used to increment state to force update
-
-    const [userCredit, setUserCredit] = useState(i)//using the state to force an update
+    
+    const [newCredBalance, setNewCredBalance] = useState(props.balance)
+    
    
 
     const addCredit = (ev) => {
-        i++
         ev.preventDefault()
        creditContents.push({description: ev.target[0].value, amount: ev.target[1].value})
-       setUserCredit(i) // forces an update to display the new debit
+       setNewCredBalance(newCredBalance? (parseFloat(newCredBalance)+parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)+parseFloat(ev.target[1].value)).toFixed(2))
+       console.log(typeof props.balance)
     }
 
     if(creditContents){
         return(
             <div>
                 <h1>Credits</h1>
-                <h3>Account Balance: {balance}</h3>
+                <h3>Account Balance: {newCredBalance? newCredBalance : props.balance}</h3>
 
                 <form onSubmit={(ev) => addCredit(ev)}>
                     <input type={"text"} placeholder="Enter a description for your new Debit"/>
