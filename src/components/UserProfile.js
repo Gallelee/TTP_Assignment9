@@ -5,11 +5,17 @@ export default function UserProfile(props){
 
     return(
         <div>
+            <nav>
             <h1>User Profile</h1>
-
-            <div>Username: {props.username}</div>
-            <div>Member Since: {props.memberSince}</div>
             <Link to="/">Home</Link>
+            </nav>
+
+            <div>
+                <h3>Username: {props.username}</h3>
+                <h3>  Member Since: {props.memberSince}</h3>
+            </div>
+          
+            
         </div>
     )
 }

@@ -1,0 +1,47 @@
+.debit-card, .credit-card{
+    border: solid 2px;
+    width: fit-content;
+    padding: 10px;
+    display: inline-block;
+    margin:10px;
+    font-size: x-large;
+    border-radius: 10px;
+}
+
+form{
+    margin: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+input{
+    display: flex;
+    margin: 20px;
+    font-size: larger;
+    padding: 15px;
+    border-radius: 10px;
+    border: solid black 1px;
+}
+
+h3{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+a{
+    font-size: x-large;
+    margin: 10px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+nav{
+    background-color:lavender;
+    padding: 50px;
+    margin-bottom: 50px;
+}

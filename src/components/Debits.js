@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import {Link} from "react-router-dom"
+import "../component-styles/debits.css"
 
 export default function Debits(props){
 
@@ -9,7 +11,7 @@ export default function Debits(props){
     const addDebit = async (ev) => {
 
         ev.preventDefault()
-        debitContents.push({description: ev.target[0].value, amount: ev.target[1].value})
+        debitContents.unshift({description: ev.target[0].value, amount: ev.target[1].value})
         setNewBalance(newBalance? (parseFloat(newBalance)-parseFloat(ev.target[1].value)).toFixed(2) : (parseFloat(props.balance)-parseFloat(ev.target[1].value)).toFixed(2))
        console.log(newBalance)
 
@@ -19,13 +21,23 @@ export default function Debits(props){
     if(debitContents){
         return(
             <div>
-                <h1>Debits</h1>
-                <h2>Add new Debits?</h2>
-                <h3>Account Balance: {newBalance? newBalance:props.balance}</h3> 
+                <nav id="deb-nav">
+                    <h1>Debits</h1>
+                    <h4>Account Balance: {newBalance? newBalance:props.balance}</h4> 
+                    <div id={"deb-links"}>
+                        <Link to="/">Home</Link>
+                        <Link to="/Credits">Credits</Link>
+                    </div>
+                </nav>
+
+                
+
+                <h3>Add New Debits?</h3>
+
                 <form onSubmit={(ev) => addDebit(ev)}>
                     <input type={"text"} placeholder="Enter a description for your new Debit"/>
                     <input type={"text"} placeholder="Enter the amount for the new debit"/>
-                    <input type={"submit"} value={"Save Changes"}/>
+                    <input type={"submit"} value={"Add Debit"}/>
                 </form>
                 {debitContents.map( elm => {
                     return(<div className="debit-card">
@@ -39,7 +51,7 @@ export default function Debits(props){
     }
 
     return(
-        <h2>Data not found</h2>
+        <h1>Debits</h1>
     )
     
 }
